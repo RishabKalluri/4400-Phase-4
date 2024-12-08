@@ -1,0 +1,59 @@
+.DisplayOwner {
+    max-width: 90%;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #333;
+  }
+  
+  .DisplayOwner h2 {
+    text-align: center;
+    color: #007b55; 
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .DisplayOwner table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border: 2px solid black; 
+  }
+  
+  .DisplayOwner th,
+  .DisplayOwner td {
+    border: 1px solid black; 
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .DisplayOwner th {
+    background-color: #007b55; 
+    color: white;
+    font-size: 1rem;
+  }
+  
+  .DisplayOwner td {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .DisplayOwner tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .DisplayOwner tr:hover {
+    background-color: #dfeeea; 
+  }
+  
+  .DisplayOwner td {
+    border-right: 1px solid black; 
+  }
+  
+  .DisplayOwner td:last-child {
+    border-right: none; 
+  }
+  
