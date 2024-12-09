@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './addowner.css'; 
+import './generalized_form_css.css'; // Using the generalized form CSS
 
 function AddOwner() {
   const [formData, setFormData] = useState({
@@ -8,14 +8,14 @@ function AddOwner() {
     ip_first_name: '',
     ip_last_name: '',
     ip_address: '',
-    ip_birthdate: '',
+    ip_birthdate: ''
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: value
     }));
   };
 
@@ -34,7 +34,7 @@ function AddOwner() {
           ip_first_name: '',
           ip_last_name: '',
           ip_address: '',
-          ip_birthdate: '',
+          ip_birthdate: ''
         });
       } else {
         alert('Error adding owner');
@@ -46,12 +46,11 @@ function AddOwner() {
   };
 
   return (
-    <div className="AddOwner">
-      <h2>Business Supply</h2>
-      <div className="AddOwner-link">
+    <div className="GeneralForm"> {/* Using the generalized styling */}
+      <div className="GeneralForm-link">
         <h3>Add a Business Owner</h3>
       </div>
-      <form className="AddOwner-form" onSubmit={handleSubmit}>
+      <form className="GeneralForm-form" onSubmit={handleSubmit}>
         <label>
           <span>Username:</span>
           <input
@@ -107,7 +106,7 @@ function AddOwner() {
           />
         </label>
 
-        <button type="submit" className="AddOwner-button">
+        <button type="submit" className="GeneralForm-button">
           Add Owner
         </button>
       </form>
@@ -116,3 +115,4 @@ function AddOwner() {
 }
 
 export default AddOwner;
+

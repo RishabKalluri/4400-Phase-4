@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './addowner.css'; // Using the same styles as AddOwner
+import './generalized_form_css.css'; // Using the generalized form CSS
 
 function AddEmployee() {
   const [formData, setFormData] = useState({
@@ -65,11 +65,11 @@ function AddEmployee() {
   };
 
   return (
-    <div className="AddOwner"> {/* Using the same className as AddOwner for styling */}
-      <div className="AddOwner-link">
+    <div className="GeneralForm"> {/* Using the generalized styling */}
+      <div className="GeneralForm-link">
         <h3>Add an Employee</h3>
       </div>
-      <form className="AddOwner-form" onSubmit={handleSubmit}>
+      <form className="GeneralForm-form" onSubmit={handleSubmit}>
         <label>
           <span>Username:</span>
           <input
@@ -169,7 +169,7 @@ function AddEmployee() {
           />
         </label>
 
-        <button type="submit" className="AddOwner-button"> {/* Using the same button style */}
+        <button type="submit" className="GeneralForm-button">
           Add Employee
         </button>
       </form>
@@ -178,4 +178,3 @@ function AddEmployee() {
 }
 
 export default AddEmployee;
-

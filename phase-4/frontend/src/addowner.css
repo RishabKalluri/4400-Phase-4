@@ -1,73 +1,75 @@
-.AddOwner {
-    background: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 30px;
-    text-align: center;
-    font-family: 'Roboto', Arial, sans-serif;
-  }
-  
-  .AddOwner h2 {
-    color: #333;
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .AddOwner-link {
-    margin-top: 20px; 
-    margin-bottom: 40px; 
-  }
-  
-  .AddOwner h3 {
-    font-size: 1.5rem;
-    color: #555;
-  }
-  
-  .AddOwner-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: stretch;
-  }
-  
-  .AddOwner-form label {
-    font-size: 1rem;
-    color: #555;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-  }
-  
-  .AddOwner-form input {
-    padding: 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-  }
-  
-  .AddOwner-form input:focus {
-    border-color: #4facfe;
-    outline: none;
-    box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
-  }
-  
-  .AddOwner-button {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white;
-    border: none;
-    padding: 15px 20px; 
-    font-size: 1.2rem; 
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .AddOwner-button:hover {
-    background: linear-gradient(135deg, #2575fc, #6a11cb);
-    transform: scale(1.1); 
-  }
+/* Generalized Form CSS */
+.GeneralForm {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  text-align: center;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.GeneralForm h2 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.GeneralForm-link {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.GeneralForm h3 {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+.GeneralForm-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.GeneralForm-form label {
+  font-size: 1rem;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.GeneralForm-form input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.GeneralForm-form input:focus {
+  border-color: #4caf50; /* Green border to match the original AddOwner */
+  outline: none;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.GeneralForm-button {
+  background: linear-gradient(135deg, #4caf50, #81c784); /* Green gradient for button */
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.GeneralForm-button:hover {
+  background: linear-gradient(135deg, #388e3c, #4caf50); /* Darker green on hover */
+  transform: scale(1.1);
+}
+
   
