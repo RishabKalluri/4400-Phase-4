@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './views.css';
 
-function DisplayOwner() {
+function DisplayService() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/view/display_owner_view');
+        const response = await axios.get('http://127.0.0.1:5000/api/view/display_service_view');
         if (response.data.success) {
           setData(response.data.data);
         } else {
@@ -35,29 +35,27 @@ function DisplayOwner() {
           <table>
             <thead>
               <tr>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Address</th>
-                <th>Number of Businesses</th>
-                <th>Number of Places</th>
-                <th>High Rating</th>
-                <th>Low Rating</th>
-                <th>Total Debt</th>
+                <th>Service ID</th>
+                <th>Service Name</th>
+                <th>Home Base</th>
+                <th>Manager</th>
+                <th>Revenue</th>
+                <th>Products Carried</th>
+                <th>Price Carried</th>
+                <th>Weight Carried</th>
               </tr>
             </thead>
             <tbody>
               {data.map((item, index) => (
                 <tr key={index}>
-                  <td>{item.username}</td>
-                  <td>{item.first_name}</td>
-                  <td>{item.last_name}</td>
-                  <td>{item.address}</td>
-                  <td>{item.num_businesses}</td>
-                  <td>{item.num_places}</td>
-                  <td>{item.highs}</td>
-                  <td>{item.lows}</td>
-                  <td>{item.debt}</td>
+                  <td>{item.id}</td>
+                  <td>{item.long_name}</td>
+                  <td>{item.home_base}</td>
+                  <td>{item.manager}</td>
+                  <td>{item.revenue}</td>
+                  <td>{item.products_carried}</td>
+                  <td>{item.price_carried}</td>
+                  <td>{item.weight_carried}</td>
                 </tr>
               ))}
             </tbody>
@@ -68,4 +66,4 @@ function DisplayOwner() {
   );
 }
 
-export default DisplayOwner;
+export default DisplayService;

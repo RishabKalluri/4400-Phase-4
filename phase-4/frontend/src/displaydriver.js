@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './views.css';
 
-function DisplayOwner() {
+function DisplayDriver() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/view/display_owner_view');
+        const response = await axios.get('http://127.0.0.1:5000/api/view/display_driver_view');
         if (response.data.success) {
           setData(response.data.data);
         } else {
@@ -27,7 +27,7 @@ function DisplayOwner() {
 
   return (
     <div className="view">
-      <h2>Business Owner Data</h2>
+      <h2>Driver Data</h2>
       {loading ? (
         <div className="loading">Loading data...</div>
       ) : (
@@ -36,28 +36,18 @@ function DisplayOwner() {
             <thead>
               <tr>
                 <th>Username</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Address</th>
-                <th>Number of Businesses</th>
-                <th>Number of Places</th>
-                <th>High Rating</th>
-                <th>Low Rating</th>
-                <th>Total Debt</th>
+                <th>License ID</th>
+                <th>Successful Trips</th>
+                <th>Number of Vans</th>
               </tr>
             </thead>
             <tbody>
               {data.map((item, index) => (
                 <tr key={index}>
                   <td>{item.username}</td>
-                  <td>{item.first_name}</td>
-                  <td>{item.last_name}</td>
-                  <td>{item.address}</td>
-                  <td>{item.num_businesses}</td>
-                  <td>{item.num_places}</td>
-                  <td>{item.highs}</td>
-                  <td>{item.lows}</td>
-                  <td>{item.debt}</td>
+                  <td>{item.licenseID}</td>
+                  <td>{item.successful_trips}</td>
+                  <td>{item.num_vans}</td>
                 </tr>
               ))}
             </tbody>
@@ -68,4 +58,4 @@ function DisplayOwner() {
   );
 }
 
-export default DisplayOwner;
+export default DisplayDriver;

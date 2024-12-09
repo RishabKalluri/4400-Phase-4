@@ -1,4 +1,4 @@
-.DisplayOwner {
+.view {
   max-width: 90%;
   margin: 40px auto;
   background: #f8f9fa;
@@ -9,7 +9,7 @@
   color: #333;
 }
 
-.DisplayOwner h2 {
+.view h2 {
   text-align: center;
   color: #007b55;
   font-size: 2.4rem;
@@ -18,33 +18,33 @@
   font-weight: bold;
 }
 
-.DisplayOwner .loading {
+.view .loading {
   text-align: center;
   color: #666;
   font-size: 1.2rem;
   padding: 20px;
 }
 
-.DisplayOwner .table-container {
+.view .table-container {
   overflow-x: auto;
 }
 
-.DisplayOwner table {
+.view table {
   width: 100%;
   border-collapse: collapse;
   margin: 20px 0;
   border: 1px solid #ddd;
 }
 
-.DisplayOwner th,
-.DisplayOwner td {
+.view th,
+.view td {
   padding: 15px;
   text-align: left;
   font-size: 1rem;
   white-space: nowrap;
 }
 
-.DisplayOwner th {
+.view th {
   background-color: #007b55;
   color: white;
   font-size: 1.1rem;
@@ -52,34 +52,34 @@
   border-bottom: 2px solid #ddd;
 }
 
-.DisplayOwner tr:nth-child(even) {
+.view tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-.DisplayOwner tr:hover {
+.view tr:hover {
   background-color: #e9f5f1;
   transition: background-color 0.3s ease;
 }
 
-.DisplayOwner td {
+.view td {
   border-right: 1px solid #ddd;
 }
 
-.DisplayOwner td:last-child {
+.view td:last-child {
   border-right: none;
 }
 
 @media (max-width: 768px) {
-  .DisplayOwner h2 {
+  .view h2 {
     font-size: 1.8rem;
   }
 
-  .DisplayOwner table {
+  .view table {
     font-size: 0.9rem;
   }
 
-  .DisplayOwner th,
-  .DisplayOwner td {
+  .view th,
+  .view td {
     padding: 10px;
   }
 }

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './views.css';
 
-function DisplayOwner() {
+function DisplayProduct() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/view/display_owner_view');
+        const response = await axios.get('http://127.0.0.1:5000/api/view/display_product_view');
         if (response.data.success) {
           setData(response.data.data);
         } else {
@@ -35,29 +35,21 @@ function DisplayOwner() {
           <table>
             <thead>
               <tr>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Address</th>
-                <th>Number of Businesses</th>
-                <th>Number of Places</th>
-                <th>High Rating</th>
-                <th>Low Rating</th>
-                <th>Total Debt</th>
+                <th>Product Name</th>
+                <th>Van Location</th>
+                <th>Amount Available</th>
+                <th>Min Price</th>
+                <th>Max Price</th>
               </tr>
             </thead>
             <tbody>
               {data.map((item, index) => (
                 <tr key={index}>
-                  <td>{item.username}</td>
-                  <td>{item.first_name}</td>
-                  <td>{item.last_name}</td>
-                  <td>{item.address}</td>
-                  <td>{item.num_businesses}</td>
-                  <td>{item.num_places}</td>
-                  <td>{item.highs}</td>
-                  <td>{item.lows}</td>
-                  <td>{item.debt}</td>
+                  <td>{item.product_name}</td>
+                  <td>{item.location}</td>
+                  <td>{item.amount_available}</td>
+                  <td>{item.low_price}</td>
+                  <td>{item.high_price}</td>
                 </tr>
               ))}
             </tbody>
@@ -68,4 +60,4 @@ function DisplayOwner() {
   );
 }
 
-export default DisplayOwner;
+export default DisplayProduct;
