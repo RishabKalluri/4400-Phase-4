@@ -5,12 +5,15 @@ from dotenv import load_dotenv
 import os
 from flask_cors import CORS
 
+# Load environment variables
 load_dotenv()
+
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
 
+# Enable CORS for all routes
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
-
+# Database configuration
 db_config = {
     "host": os.getenv("DB_HOST"),
     "port": int(os.getenv("DB_PORT")),
@@ -22,34 +25,9 @@ db_config = {
 
 def connect_to_db():
     return mysql.connector.connect(**db_config)
-@app.route('/api/procedure/add_owner', methods=['OPTIONS'])
-def options():
-    response = jsonify({"message": "CORS preflight success"})
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-    return response
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
-    return response
-@app.route('/api/procedure/add_owner', methods=['OPTIONS'])
-def add_owner_options():
-    response = jsonify({"message": "CORS preflight success"})
-    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000')
-    response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-    return response
-@app.route('/api/procedure/add_employee', methods=['OPTIONS'])
-def add_employee_options():
-    response = jsonify({"message": "CORS preflight success"})
-    response.headers.add('Access-Control-Allow-Origin', 'http://localhost:3000')
-    response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
-    return response
 
+
+# Utility function to call stored procedures
 def call_stored_procedure(proc_name, params):
     connection = None
     try:
@@ -72,14 +50,8 @@ def call_stored_procedure(proc_name, params):
             cursor.close()
             connection.close()
 
-@app.route('/api/procedure/add_owner', methods=['POST'])
-def add_owner():
-    # Your code to handle adding an owner
-    data = request.json or {}
-    # Example stored procedure call
-    response = call_stored_procedure('add_owner', list(data.values()))
-    return jsonify(response)
 
+# Utility function to execute queries
 def execute_query(query):
     connection = None
     try:
@@ -97,26 +69,44 @@ def execute_query(query):
             cursor.close()
             connection.close()
 
+
+# Route to handle adding an owner (example)
+@app.route('/api/procedure/add_owner', methods=['POST'])
+def add_owner():
+    data = request.json or {}
+    response = call_stored_procedure('add_owner', list(data.values()))
+    return jsonify(response)
+
+
+# Generic route to execute any stored procedure
 @app.route('/api/procedure/<proc_name>', methods=['POST'])
 def execute_procedure(proc_name):
     data = request.json or {}
-    params = list(data.values()) 
+    params = list(data.values())
     response = call_stored_procedure(proc_name, params)
     return jsonify(response)
 
+
+# Generic route to query any view
 @app.route('/api/view/<view_name>', methods=['GET'])
 def query_view(view_name):
     query = f"SELECT * FROM {view_name}"
     response = execute_query(query)
     return jsonify(response)
 
+
+# Error handler for 400
 @app.errorhandler(400)
 def bad_request(error):
     return jsonify({"success": False, "error": "Bad Request", "message": str(error)}), 400
 
+
+# Error handler for 404
 @app.errorhandler(404)
 def not_found(error):
     return jsonify({"success": False, "error": "Not Found"}), 404
 
+
 if __name__ == "__main__":
     app.run(debug=True)
+

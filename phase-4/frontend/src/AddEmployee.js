@@ -42,7 +42,7 @@ function AddEmployee() {
     }
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/add_employee', formDataToSubmit);
+      const response = await axios.post('http://127.0.0.1:5000/api/procedure/add_employee', formDataToSubmit);
       if (response.data.success) {
         alert('Employee added successfully');
         setFormData({ 
